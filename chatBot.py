@@ -24,7 +24,7 @@ def obter_resposta(texto: str) -> str:
     respostas = {
          ('olá', 'boa tarde', 'bom dia'): 'Olá tudo bem!',
          'como estás': 'Estou bem, obrigado!', 'como te chamas?': 'O meu nome é Joaquim',
-         ('bye', 'adeus', 'tchau'): 'Gostei de falar contigo! Até breve...',
+         ('bye', 'adeus', 'tchau'): 'Gostei de falar contigo! Até breve...', 'obrigado': 'De nada! Estou aqui para ajudar. '
     }
 
     for chave, resposta in respostas.items():
