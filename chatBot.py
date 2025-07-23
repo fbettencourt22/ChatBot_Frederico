@@ -23,7 +23,7 @@ def obter_resposta(texto: str) -> str:
 
     respostas = {
          ('olá', 'boa tarde', 'bom dia'): 'Olá tudo bem!',
-         'como estás': 'Estou bem, obrigado!',
+         'como estás': 'Estou bem, obrigado!', 'como te chamas?': 'O meu nome é Joaquim',
          ('bye', 'adeus', 'tchau'): 'Gostei de falar contigo! Até breve...',
     }
 
@@ -33,6 +33,11 @@ def obter_resposta(texto: str) -> str:
                 return resposta
         elif chave in comando:
             return resposta
+        
+    if 'horas' in comando:
+        return f'São: {datetime.now():%H:%M} horas'
+    if 'data' in comando:
+        return f'Hoje é dia: {datetime.now():%d-%m-%Y}'
 
     return f'Desculpa, não entendi a questão! {texto}'
 
@@ -46,6 +51,7 @@ def chat() -> None:
     while True:
         user_input: str = input('Tu: ')
         resposta = obter_resposta(user_input)
+        print(f'Bot: {resposta}')
         if resposta == 'Gostei de falar contigo! Até breve...':
             break
 
