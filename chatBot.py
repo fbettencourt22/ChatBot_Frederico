@@ -1,4 +1,5 @@
 import os
+import re
 from datetime import datetime
 
 def obter_resposta(texto: str) -> str:
@@ -38,6 +39,20 @@ def obter_resposta(texto: str) -> str:
         return f'São: {datetime.now():%H:%M} horas'
     if 'data' in comando:
         return f'Hoje é dia: {datetime.now():%d-%m-%Y}'
+    
+    if 'soma' in comando or '+' in comando:
+    
+        encontra = re.search(r'(\d+(?:\.\d+)?)\s*\+\s*(\d+(?:\.\d+)?)', comando)
+
+        if encontra:
+            
+            num1 = float(encontra.group(1))
+            num2 = float(encontra.group(2))
+            resultado = num1 + num2
+            return f'O resultado de {num1} + {num2} é: {resultado}'
+        else:
+            
+            return 'Claro! Diz-me os números que queres somar (exemplo: 9 + 4)'
 
     return f'Desculpa, não entendi a questão! {texto}'
 
