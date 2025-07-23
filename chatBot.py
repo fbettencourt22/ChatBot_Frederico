@@ -37,7 +37,7 @@ def obter_resposta(texto: str) -> str:
     return f'Desculpa, não entendi a questão! {texto}'
 
 
-def chat(resposta) -> None:
+def chat() -> None:
     print('Bem-vindo ao ChatBot!')
     print('Escreva "bye" para sair do chat')
     name: str = input('Bot: Como te chamas? ')
@@ -45,13 +45,11 @@ def chat(resposta) -> None:
 
     while True:
         user_input: str = input('Tu: ')
-
+        resposta = obter_resposta(user_input)
         if resposta == 'Gostei de falar contigo! Até breve...':
             break
 
     print('Chat acabou')
-    print()
-
 
 def main() -> None:
     os.system('cls' if os.name == 'nt' else 'clear')
